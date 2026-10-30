@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#10111a" />
+  <meta name="description" content="KNU LINK - 같은 캠퍼스, 새로운 연결. 경북대 학생 소셜 매칭 웹앱 프로토타입" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>KNU LINK — 같은 캠퍼스, 새로운 연결</title>
+</head>
+<body>
+  <div class="mesh mesh-a"></div><div class="mesh mesh-b"></div>
+  <div id="toast-region" aria-live="polite"></div>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="KNU LINK 홈">
+        <span class="brand-icon"><span class="brand-icon-symbol">↗</span></span>
+        <span class="brand-name">KNU<span>LINK</span><small>BETA</small></span>
+      </a>
+      <div class="header-right">
+        <span id="server-status" class="connect-status"><i></i><span>연결 중</span></span>
+        <span class="header-divider"></span>
+        <span class="prototype-tag">UNOFFICIAL CAMPUS PROJECT</span>
+      </div>
+    </header>
+    <main>
+      <section id="entry-screen" class="entry-screen">
+        <div class="entry-grid">
+          <div class="intro">
+            <div class="eyebrow"><span class="eyebrow-line"></span> FIND YOUR PEOPLE, ON CAMPUS <span class="twinkle">✦</span></div>
+            <h1>같은 캠퍼스,<br/><span>아직 만나지 못한</span><br/>우리.</h1>
+            <p class="intro-description">매일 스쳐 지나가는 수많은 사람들.<br />오늘은 그중 한 사람과 진짜 이야기를 나눠보세요.</p>
+            <div class="intro-figures">
+              <div><strong>04</strong><span>가지 매칭 방식</span></div>
+              <div class="figure-divider"></div>
+              <div><strong>1:1</strong><span>실시간 대화</span></div>
+              <div class="figure-divider"></div>
+              <div><strong>3<span class="small-unit">MIN</span></strong><span>첫 대화의 시작</span></div>
+            </div>
+            <div class="social-decoration" aria-hidden="true">
+              <span class="float-sticker one">안녕! 👋</span>
+              <span class="float-sticker two">연결 중 <span class="dot-ping">●</span></span>
+              <div class="abstract-disc disc-one"><span>◌</span></div>
+              <div class="abstract-disc disc-two"><span>✺</span></div>
+              <div class="abstract-disc disc-three"><span>↗</span></div>
+              <div class="deco-line"></div>
+            </div>
+          </div>
+          <div class="setup-card">
+            <div class="setup-top"><span>LET'S CONNECT</span><span class="setup-id">01 / 02</span></div>
+            <div class="setup-heading"><h2>어떤 만남을 원해?</h2><p>오늘의 기분에 맞는 매칭을 골라봐.</p></div>
+            <div class="mode-grid" role="group" aria-label="매칭 모드 선택">
+              <button type="button" class="mode-card selected" data-mode="friend" aria-pressed="true"><span class="mode-symbol symbol-friend">☺</span><span class="mode-name">친구 만들기</span><span class="mode-explainer">새로운 친구 만나기</span><span class="mode-check">✓</span></button>
+              <button type="button" class="mode-card" data-mode="date" aria-pressed="false"><span class="mode-symbol symbol-date">♡</span><span class="mode-name">설레는 만남</span><span class="mode-explainer">두근두근 첫 대화</span><span class="mode-check">✓</span></button>
+              <button type="button" class="mode-card" data-mode="random" aria-pressed="false"><span class="mode-symbol symbol-random">✳</span><span class="mode-name">랜덤 토크</span><span class="mode-explainer">그냥 수다 떨고 싶어</span><span class="mode-check">✓</span></button>
+              <button type="button" class="mode-card" data-mode="connect" aria-pressed="false"><span class="mode-symbol symbol-connect">⌘</span><span class="mode-name">인맥 · 팀원</span><span class="mode-explainer">함께할 사람 찾아보기</span><span class="mode-check">✓</span></button>
+            </div>
+            <div class="setup-divider"><span>나를 조금만 소개해 줘</span></div>
+            <div class="form-field"><label for="nickname">닉네임 <span>필수</span></label><input id="nickname" maxlength="24" autocomplete="nickname" placeholder="상대방에게 보일 이름" value="" /></div>
+            <div class="form-field"><label>관심사 <span>선택 · 최대 5개</span></label><div class="interest-list" id="interest-list">
+              <button class="interest" type="button" data-interest="음악">🎧 음악</button><button class="interest" type="button" data-interest="게임">🎮 게임</button><button class="interest" type="button" data-interest="영화">🎬 영화</button><button class="interest" type="button" data-interest="운동">🏃 운동</button><button class="interest" type="button" data-interest="공부">📚 공부</button><button class="interest" type="button" data-interest="개발">💻 개발</button><button class="interest" type="button" data-interest="여행">✈️ 여행</button><button class="interest" type="button" data-interest="맛집">🍜 맛집</button>
+            </div></div>
+            <label id="adult-consent-row" class="consent-row hidden"><input type="checkbox" id="adult-consent" /><span>만 19세 이상이며 소개팅 모드 참여에 동의해요. <small>이 시제품은 실제 나이 인증 기능이 없습니다.</small></span></label>
+            <button type="button" id="start-button" class="main-button">지금 연결 시작하기 <span>↗</span></button>
+            <p class="disclaimer"><span>ⓘ</span> 학교 공식 서비스가 아닌 팀프로젝트 시제품입니다. <strong>재학생 인증 전</strong>이며 실제 학생 여부는 보장되지 않습니다.</p>
+          </div>
+        </div>
+        <div class="bottom-note"><span>BUILT FOR HUMAN CONNECTION</span><span>KNU LINK · CAMPUS SOCIAL EXPERIMENT</span></div>
+      </section>
+
+      <section id="matching-screen" class="matching-screen hidden" aria-live="polite">
+        <div class="search-pane">
+          <div class="eyebrow"><span class="eyebrow-line"></span> LIVE MATCHMAKING</div>
+          <div class="search-orbit"><div class="orbit orbit-three"></div><div class="orbit orbit-two"></div><div class="orbit orbit-one"></div><div class="orbit-core">↗</div><span class="satellite satellite-a">✦</span><span class="satellite satellite-b">●</span></div>
+          <div class="search-badge"><span class="live-circle"></span> <span id="search-mode">친구 만들기</span> 매칭 중</div>
+          <h2>새로운 연결을<br />찾고 있어요<span class="moving-dots">...</span></h2>
+          <p>같은 모드를 선택한 사람이 접속하면 바로 연결됩니다.<br/>다른 브라우저에서도 접속해 테스트해 보세요.</p>
+          <div class="search-count"><span>현재 접속 <b id="online-count">1</b>명</span><span class="count-dot">·</span><span>이 모드 대기 <b id="queue-count">1</b>명</span></div>
+          <button id="cancel-button" type="button" class="secondary-button">매칭 취소</button>
+        </div>
+      </section>
+
+      <section id="call-screen" class="call-screen hidden">
+        <div class="call-topline">
+          <div><span class="eyebrow small"><span class="eyebrow-line"></span> MATCH FOUND</span><h2>우리, 연결됐어요 <span class="sparkle">✦</span></h2><p id="call-subtitle">안전하고 즐거운 대화를 시작해 보세요.</p></div>
+          <div class="call-top-actions"><span id="matched-mode-label" class="mode-pill">친구 만들기</span><button id="leave-button" class="tertiary-button" type="button">매칭 나가기 ✕</button></div>
+        </div>
+        <div class="call-layout">
+          <div class="call-main">
+            <div class="video-grid">
+              <div class="video-tile remote-tile"><video id="remote-video" autoplay playsinline></video><div id="remote-placeholder" class="video-placeholder"><div id="remote-avatar" class="video-avatar">?</div><strong id="remote-display-name">새로운 친구</strong><span id="remote-media-text">음성 통화에 연결해 보세요</span></div><span class="video-tile-label"><span class="live-circle"></span> <span id="remote-name-tag">상대방</span></span></div>
+              <div class="video-tile local-tile"><video id="local-video" autoplay playsinline muted></video><div id="local-placeholder" class="video-placeholder"><div class="video-avatar local-avatar">나</div><strong>나</strong><span>카메라가 꺼져 있어요</span></div><span class="video-tile-label">나 (미리보기)</span></div>
+            </div>
+            <div class="call-status-row"><div class="call-state-indicator"><span id="call-indicator" class="indicator-idle"></span><span id="call-message">채팅을 먼저 시작하거나, 서로 마이크 연결에 동의하세요.</span></div><div class="timer" id="session-timer">00:00</div></div>
+            <div class="controls-panel"><div class="media-buttons"><button id="audio-button" class="media-button" type="button"><span>◉</span> 음성 연결</button><button id="camera-button" class="media-button" type="button"><span>▣</span> 카메라 동의</button></div><div class="action-buttons"><button id="friend-button" class="action-button action-friend" type="button">♡ 친구 신청</button><button id="next-button" class="action-button action-next" type="button">다음 사람 ↗</button></div></div>
+            <div class="info-line"><span>🔒</span> 상대방도 동의해야 카메라가 켜져요. 서버는 영상·음성 내용을 저장하지 않습니다.</div>
+          </div>
+          <aside class="chat-panel">
+            <div class="chat-head"><div><div class="chat-head-title">대화 공간 <span class="chat-badge">LIVE</span></div><p>말 대신 글로도 이야기해요.</p></div><span class="chat-head-icon">✉</span></div>
+            <div class="partner-card"><div id="partner-initial" class="partner-initial">?</div><div><strong id="partner-name">상대방</strong><span id="partner-tags">랜덤 매칭</span></div><span class="online-dot"></span></div>
+            <div id="chat-messages" class="chat-messages" role="log" aria-live="polite"><div class="chat-system">매칭되었습니다. 서로를 존중하며 대화해 주세요.</div></div>
+            <div class="chat-composer"><form id="chat-form"><input id="chat-input" maxlength="1000" autocomplete="off" placeholder="메시지를 입력하세요..." aria-label="메시지 입력" /><button id="send-button" type="submit" aria-label="보내기">➤</button></form><p>친구 신청은 양쪽이 모두 동의해야 성립해요.</p></div>
+            <div class="safety-row"><button type="button" id="block-button">⊘ 차단</button><button type="button" id="report-button">⚑ 신고</button></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><span>© KNU LINK PROTOTYPE</span><span>실제 학생 인증 및 운영자 심사 기능 미구현 · 영상 대화는 참여자 간 WebRTC 연결</span></footer>
+  </div>
+  <dialog id="report-dialog" class="report-dialog"><form method="dialog" id="report-form"><h3>상대방 신고하기</h3><p>신고 후 상대방과의 연결이 끊기고 재매칭이 차단됩니다. 신고 사유는 이 시제품 서버에 기록됩니다.</p><label for="report-reason">신고 사유</label><select id="report-reason"><option value="harassment">괴롭힘·모욕</option><option value="sexual">부적절한 성적 행동</option><option value="spam">광고·스팸</option><option value="hate">혐오 발언</option><option value="other">기타</option></select><div class="dialog-actions"><button type="button" id="report-cancel" class="secondary-button">취소</button><button type="submit" id="report-confirm" class="danger-button">신고하고 차단</button></div></form></dialog>
+  <script src="./app.js" defer></script>
+</body>
+</html>
